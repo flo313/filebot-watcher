@@ -111,7 +111,7 @@ chown -R ${USER_NAME}:${USER_NAME} $CONFIG_DIR
 echo "$(ts) Scanning '$CONFIG_DIR' folder for missing scripts..."
 for file in filebot.sh filebot.conf monitor.sh; do
   echo "$(ts)    Check '$file'..."
-  [ ! -f "$CONFIG_DIR/$file" ] && echo "$(ts)      File doesn't exists, copy it..." && cp "/files/$file" $CONFIG_DIR
+  [ ! -f "$CONFIG_DIR/$file" ] && echo "$(ts)      File doesn't exists, copy it..." && cp -p "/files/$file" $CONFIG_DIR
 done
 
 #echo "$(ts)    Give ownership for previously create user to $WATCH_DIR, $OUTPUT_DIR /files folder (Recursively)..."
