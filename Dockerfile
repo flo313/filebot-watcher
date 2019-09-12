@@ -1,13 +1,13 @@
 FROM openjdk:8u222-jre-slim
 
 # Set Global Variables used by this container
-ARG FILEBOT_VERSION=4.7.9 \
-    CONFIG_DIR="/data" \
-    USER_ID="1000" \
-    GROUP_ID="1000" \
-    USER_NAME="filebot" \
-    WATCH_DIR="/input" \
-    OUTPUT_DIR="/output"
+ARG FILEBOT_VERSION=4.7.9
+ARG CONFIG_DIR="/data"
+ARG USER_ID="1000"
+ARG GROUP_ID="1000"
+ARG USER_NAME="filebot"
+ARG WATCH_DIR="/input"
+ARG OUTPUT_DIR="/output"
 
 ENV FILEBOT_VERSION=${FILEBOT_VERSION} \
     CONFIG_DIR=${CONFIG_DIR} \
