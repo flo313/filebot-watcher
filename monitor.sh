@@ -153,7 +153,7 @@ pipe=$(mktemp -u)
 mkfifo $pipe
 
 # inotifywait -r -m -q --format 'EVENT=%e WATCHED=%w FILE=%f' /input/Animes /input/TVShows /input/Movies >$pipe &
-inotifywait -r -m -q -e MODIFY,MOVED_TO,CLOSE_WRITE --format 'EVENT=%e WATCHED=%w/%f' ${WATCH_DIR}/Animes "${WATCH_DIR}/TV Shows" ${WATCH_DIR}/Movies ${WATCH_DIR}/Musics >$pipe &
+inotifywait -r -m -q -e MOVED_TO,CLOSE_WRITE --format 'EVENT=%e WATCHED=%w/%f' ${WATCH_DIR}/Animes "${WATCH_DIR}/TV Shows" ${WATCH_DIR}/Movies ${WATCH_DIR}/Musics >$pipe &
 # inotifywait -r -m -q -e MODIFY,MOVED_TO,CLOSE_WRITE --format 'EVENT=%e WATCHED=%w/%f' /input >$pipe &
 last_run_time=0
 
@@ -195,7 +195,7 @@ do
     
     echo "$(ts) Running command with user ID $USER_ID and group ID $GROUP_ID"
     #/sbin/setuser $USER_NAME $COMMAND &
-    $COMMAND "$WATCHED" "$FLAG" &
+    $COMMAND "${WATCHED}" "${FLAG}" &
     PID=$!
     last_run_time=$(date +"%s")
 
