@@ -27,7 +27,7 @@ case $2 in
   "Musics") DEF_UT_LABEL="ut_label=Music music=y"
 esac
 mkdir -p "$OUTPUT_DIR/$2"
-filebot -script fn:amc --output "$OUTPUT_DIR/$2" --log all --log-file $LOG_FILE --action move --lang fr --conflict skip -non-strict \
+filebot -script fn:amc --output "$OUTPUT_DIR/$2" --log all --log-file $LOG_FILE --action move --lang fr --conflict skip -no-xattr -non-strict \
 		--def ut_dir="$1" $DEF_UT_LABEL skipExtract=y unsorted=y artwork=n excludeList=$CONFIG_DIR/excludeList.txt reportError=y $MEDIACENTER_NOTIF_INSTRUCTION $SUBTITLE_OPTION \
 		movieFormat="$MOVIE_FORMAT" musicFormat="$MUSIC_FORMAT" seriesFormat="$SERIES_FORMAT" animeFormat="$ANIME_FORMAT"
 rc=$?
