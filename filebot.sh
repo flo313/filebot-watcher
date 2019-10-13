@@ -34,11 +34,11 @@ rc=$?
 echo "$(ts) FileBot AMC script done! -> Return Code: $rc" | tee -a $LOG_FILE
 #************************************************************************
 echo "$(ts) FileBot Cleaner script..." | tee -a $LOG_FILE
-filebot -script fn:cleaner "$WATCH_DIR" --log all --log-file $LOG_FILE
+filebot -script fn:cleaner "$1" --log all --log-file $LOG_FILE
 echo "$(ts) FileBot Cleaner script done!" | tee -a $LOG_FILE
 #************************************************************************
 
-mkdir -p ${WATCH_DIR}/Animes "${WATCH_DIR}/TV Shows" ${WATCH_DIR}/Movies ${WATCH_DIR}/Musics
+# mkdir -p ${WATCH_DIR}/Animes "${WATCH_DIR}/TV Shows" ${WATCH_DIR}/Movies ${WATCH_DIR}/Musics
 
 echo "$(ts) Spliting log to keep usefull informations on '$LOG_FILE'..."
 DATESTAMP=$(date '+%Y-%m-%d %T')
